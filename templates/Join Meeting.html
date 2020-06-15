@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--Email template params:
+external_user,
+host_full_name,
+meeting_id,
+meeting_url,
+dialin_number
+--!-->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Join Meeting</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700" rel="stylesheet" type="text/css">
+	<style>
+    #email {
+        font-family: Open Sans,sans-serif;
+        font-size: 13px;
+        margin: 41px auto 0px;
+        width: 396px;
+        height: auto;
+        border-radius: 12px;
+        border: solid 2px #c7cbd6;
+        word-wrap: break-word;
+    }
+    .body {
+        text-align: left;
+        white-space: pre-line;
+        color: #232742;
+        padding: 0 36px 12px 41px;
+    }
+    .btn-join {
+        width: 80%;
+        height: 46px;
+        font-size: 12px;
+        border-radius: 6px;
+        background-color: #151b42;
+        border: solid 2px;
+        color: white;
+		font-family: Open Sans,sans-serif;
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+    .logo {
+        height: 6%;
+        width: 38%;
+        display: block;
+        margin: 50px auto auto;
+    }
+    .footer {
+        font-size: 11px;
+        color: #6f7288;
+        text-align: center;
+        margin-top: 19px;
+		margin-bottom: 24px;
+    }
+    .fa-external-link {
+        font-weight: bold;
+        margin-left: 10px;
+    }
+	.call-icon {
+		width: 16.7px;
+		height: 16.5px;
+		margin-left: 12px;
+		margin-bottom: -4px;
+	}
+    .meeting-details {
+		color: #0991cc;
+	}
+	.inline {
+		float: left;
+	}
+    .nm {
+        margin: 0 auto 0;
+    }
+    .btn-margin {
+        width: 62%;
+        margin: -15px auto 0;
+    }
+    hr {
+        width: 83%;
+        color: #6f7288;
+    }
+	a {
+		color: #0991cc;
+	}
+	</style>
+</head>
+<body>
+<div id="email">
+    <img class="logo" src="https://aviso-email-images.s3.amazonaws.com/Sunset+Red+%2B+Black@2x.png">
+    <div class="body">
+        <p>
+            Hi {{ external_user }},
+
+			
+            {{ host_full_name }} just started a live meeting and invited you to join. 
+
+			Meeting ID: {{ meeting_id }}
+        </p>
+        <form method="get" action="{{ meeting_url }}"><button class="btn-join nm">Join Meeting<img class='call-icon' src="https://aviso-email-images.s3.amazonaws.com/Union.png"></form>
+        </button>
+		
+		<p class="nm">Want to join by phone? Dial this number:</p>
+		<p class="nm inline">United States:  <div class="meeting-details inline"> {{ dialin_number }}</div></p>
+		<p class="nm inline">Then, enter this Meeting ID:  <div class="meeting-details inline"> {{ meeting_id }}#</div></p>
+		
+		<p class="nm">You can also join the meeting by clicking the link below:</p>
+		<a href="{{ meeting_url }}">{{ meeting_url }}</a>
+		
+        <p>Sincerely,
+		   The Aviso Team
+        </p>
+    </div>
+    <hr>
+    <div class="footer">
+        <p>© 2020, AVISO Inc. All Rights Reserved.</p>
+    </div>
+</div>
+<img src="{{opens_tracker}}" style="width: 1px; height: 1px">
+</body></html>

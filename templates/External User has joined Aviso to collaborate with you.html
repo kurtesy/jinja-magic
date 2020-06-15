@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--Email template params:
+internalUser/Host name: internal_user
+external username: external_user_name
+external user email: external_user_mail
+external userid: user_id
+room_url
+deal_name
+workspace_name,
+tenant_name
+--!-->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>{{ external_user_name }} has joined Aviso to collaborate with you.</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700" rel="stylesheet" type="text/css">
+	<style>
+    #email {
+        font-family: Open Sans,sans-serif !important;
+        font-size: 13px;
+        margin: 41px auto 0px;
+        width: 396px;
+        height: auto;
+        border-radius: 12px;
+        border: solid 2px #c7cbd6;
+        word-wrap: break-word;
+    }
+    .body {
+        text-align: left;
+        white-space: pre-line;
+        color: #232742;
+        padding: 0 36px 12px 41px;
+    }
+    .btn-join {
+		font-family: Open Sans,sans-serif;
+        width: 83%;
+        height: 46px;
+        font-size: 12px;
+        border-radius: 6px;
+        background-color: #151b42;
+        border: solid 2px;
+        color: white;
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+    .logo {
+        height: 6%;
+        width: 38%;
+        display: block;
+        margin: 50px auto auto;
+    }
+    .footer {
+        font-size: 11px;
+        color: #c7cbd6;
+        text-align: center;
+        margin-top: 19px;
+		margin-bottom: 24px;
+    }
+   .external-link {
+        width: 15px;
+		height: 15px;
+		margin-left: 12px;
+		margin-bottom: -3px;
+    }
+    .user-group  {
+        width: 40px;
+		height: 40px;
+		margin-left: 5px;
+		opacity: 0.8;
+		filter: saturate(0.4);
+    }
+    .externalUser {
+        margin: 0 0 5px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .sub-heading {
+        margin: 0 0 -18px;
+        color: #404255;
+    }
+    .deal-name {
+        font-size: 15px;
+        font-weight: 600;
+        color: #0991cc;
+        padding: 5px 0 0 11px;
+    }
+    .invite-frm {
+        font-size: 12px;
+        color: #6f7288;
+        padding: 2px 0 0 11px;
+    }
+    .nm {
+        margin: 0 auto 0;
+    }
+    hr {
+        width: 83%;
+        opacity: 0.3;
+        color: #c7cbd6;
+    }
+	.table-style {
+		padding-top: 5px;
+	}
+</style>
+</head>
+<body>
+<div id="email">
+    <img class="logo" src="https://aviso-email-images.s3.amazonaws.com/Aviso-Logo@2x.png">
+    <div class="body">
+        <p>
+            Hi {{ internal_user }},
+
+            {{ external_user_name }} ({{ external_user_mail }}) has activated their account in Aviso to collaborate with you.  Here’s their details for reference:
+        </p>
+        <div class="sub-heading">Name:</div>
+        <p class="externalUser">{{ external_user_name }}</p>
+        <div class="sub-heading">Username:</div>
+        <p class="externalUser">{{ user_id }}</p>
+		<div class="sub-heading">Workspace:</div>
+        <p class="externalUser">{{ workspace_name }}</p>
+        <div class="sub-heading">Collaboration Room:</div>
+        <table class="table-style"><tbody>
+            <tr>
+                <td><img class="user-group" src="https://aviso-email-images.s3.amazonaws.com/user-group.png"></td>
+                <td style="padding-top: 10px;"><span class="deal-name">{{ deal_name }}</span>
+                    <span class="invite-frm">Invite from: {{ internal_user }} at {{ tenant_name }}</span>
+                </td>
+            </tr>
+        </tbody></table>
+
+        <form method="get" action="{{ room_url }}"><button class="btn-join nm">Login to Collaborate <img class="external-link" src="https://aviso-email-images.s3.amazonaws.com/external-link-solid.png"></form>
+        </button>
+        <p>Sincerely,
+           The Aviso Team</p></div>
+    <hr>
+    <div class="footer para"><p>© 2020, AVISO Inc. All Rights Reserved.</p></div>
+</div>
+<img src="{{opens_tracker}}" style="width: 1px; height: 1px">
+</body></html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--Email template params:
+external_user_name
+external_user_first_name
+room_url
+workspace_name
+--!-->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Welcome! Here’s your login information for reference.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700" rel="stylesheet" type="text/css">
+	<style>
+    #email {
+        font-family: Open Sans,sans-serif !important;
+        font-size: 13px;
+        margin: 41px auto 0px;
+        width: 396px;
+        height: auto;
+        border-radius: 12px;
+        border: solid 2px #c7cbd6;
+        word-wrap: break-word;
+    }
+    .body {
+        text-align: left;
+        white-space: pre-line;
+        color: #232742;
+        padding: 0 36px 12px 41px;
+    }
+    .btn-join {
+		font-family: Open Sans,sans-serif;
+        width: 83%;
+        height: 46px;
+        font-size: 12px;
+        border-radius: 6px;
+        background-color: #151b42;
+        border: solid 2px;
+        color: white;
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+    .logo {
+        height: 6%;
+        width: 38%;
+        display: block;
+        margin: 50px auto auto;
+    }
+    .footer {
+        font-size: 11px;
+        color: #6f7288;
+        text-align: center;
+        margin-top: 15px;
+		margin-bottom: 24px;
+    }
+    .external-link {
+        width: 15px;
+		height: 15px;
+		margin-left: 12px;
+		margin-bottom: -3px;
+    }
+    .username {
+        font-size: 15px;
+        font-weight: 600;
+        color: #232742;
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+	.workspace {
+        font-size: 15px;
+        font-weight: 600;
+        color: #0991cc;
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+    .nm {
+        margin: 0 auto 0;
+    }
+    hr {
+        width: 83%;
+        color: #c7cbd6;
+    }
+	a {
+		color: #0991cc;
+	}
+</style>
+</head>
+<body>
+<div id="email">
+    <img class="logo" src="https://aviso-email-images.s3.amazonaws.com/Aviso-Logo@2x.png">
+    <div class="body">
+        <p>
+            Hi {{ external_user_first_name }},
+
+            When you want to collaborate in Aviso, please select ‘External User’ and use the login information below:
+        </p>
+        Username:
+        <p class="username">{{ external_user_name }}</p>
+		Workspace:
+		<p class="workspace">{{ workspace_name }}</p>
+        <p class="nm">Enter this and the password you specified on the Aviso login page. Please bookmark this email for your reference.</p>
+        <form method="get" action="{{ room_url }}"><button class="btn-join nm">Login to Collaborate <img class="external-link" src="https://aviso-email-images.s3.amazonaws.com/external-link-solid.png"></form>
+        </button>
+		<p> You can also access Aviso by going directly to <a href="https://app.aviso.com/">https://app.aviso.com/
+		</a>
+
+            Sincerely,
+            The Aviso Team
+        </p></div>
+    <hr>
+    <div class="footer">
+        <p>© 2020, AVISO Inc. All Rights Reserved.</p>
+    </div>
+</div>
+<img src="{{opens_tracker}}" style="width: 1px; height: 1px">
+</body></html>

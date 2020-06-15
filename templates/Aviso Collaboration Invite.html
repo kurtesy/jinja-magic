@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--Email template params:
+external_user,
+host_full_name,
+room_url
+--!-->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Aviso Collaboration Invite</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700" rel="stylesheet" type="text/css">
+	<style>
+    #email {
+        font-family: Open Sans,sans-serif;
+        font-size: 13px;
+        margin: 41px auto 0px;
+        width: 396px;
+        height: auto;
+        border-radius: 12px;
+        border: solid 2px #c7cbd6;
+        word-wrap: break-word;
+    }
+    .body {
+        text-align: left;
+        white-space: pre-line;
+        color: #232742;
+        padding: 0 36px 12px 41px;
+    }
+    .btn-join {
+        width: 80%;
+        height: 46px;
+        font-size: 12px;
+        border-radius: 6px;
+        background-color: #151b42;
+        border: solid 2px;
+        color: white;
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+    .logo {
+        height: 6%;
+        width: 38%;
+        display: block;
+        margin: 50px auto auto;
+    }
+    .footer {
+        font-size: 11px;
+        color: #6f7288;
+        text-align: center;
+        margin-top: 19px;
+		margin-bottom: 24px;
+    }
+    .external-link {
+        width: 15px;
+		height: 15px;
+		margin-left: 12px;
+		margin-bottom: -3px;
+    }
+    .user-group  {
+        width: 40px;
+		height: 40px;
+		padding: 7px 0 0 5px;
+		opacity: 0.8;
+		filter: saturate(0.4);
+    }
+	.deal-body {
+		margin-top: -10px;
+	}
+    .deal-name {
+        font-size: 15px;
+        font-weight: 600;
+        color: #0991cc;
+        padding: 0 0 0 11px;
+    }
+    .nm {
+        margin: 0 auto 0;
+    }
+    .btn-margin {
+        width: 62%;
+        margin: -15px auto 0;
+    }
+    hr {
+        width: 83%;
+        color: #6f7288;
+    }
+	a {
+		color: #0991cc;
+	}
+</style>
+</head>
+<body>
+<div id="email">
+    <img class="logo" src="https://aviso-email-images.s3.amazonaws.com/Sunset+Red+%2B+Black@2x.png">
+    <div class="body">
+        <p>
+            Hi {{ external_user }},
+
+            {{ host_full_name }} has invited you to an Aviso Collaboration Room named:
+        </p>
+        <table class="deal-body">
+            <tbody><tr><td><img class="user-group" src="https://aviso-email-images.s3.amazonaws.com/user-group.png"></td>
+                <td><span class="deal-name">{{ deal_name }}</span>   
+            </tr>
+        </tbody></table>
+        <p class="nm">Join the room to begin collaborating with {{ host_full_name }} and others.</p>
+		
+        <form method="get" action="{{ room_url }}"><button class="btn-join nm">Join Room<img class="external-link" src="https://aviso-email-images.s3.amazonaws.com/external-link-solid.png"></form>
+        </button>
+        <p>Sincerely,
+		   The Aviso Team
+        </p>
+    </div>
+    <hr>
+    <div class="footer">
+        <p>© 2020, AVISO Inc. All Rights Reserved.</p>
+    </div>
+</div>
+<img src="{{opens_tracker}}" style="width: 1px; height: 1px">
+</body></html>

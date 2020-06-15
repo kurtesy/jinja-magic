@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Welcome to Aviso!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--Email template params:
+room = {	
+id: room_id,
+host: host_full_name,
+url: room_url,
+name: deal_name/room_name
+}
+invitee = exteral_user
+--!-->
+<div id="email">
+    <img class="logo" src="./assets/Aviso-Logo@2x.png">
+    <div class="body">
+        <p>
+            Hi Nishant,
+
+            You’ve been invited to collaborate with Splunk using Aviso for collaboration. Nishant Patel has invited you to an Aviso Collaboration Room named:
+        </p>
+        <table>
+            <tbody><tr><td><i class="fa fa-users" aria-hidden="true"></i></td>
+                <td><span class="deal-name">Deal</span>
+                    <span class="invite-frm">Invite from: Nishant Patel at Splunk</span></td>
+                
+            </tr>
+        </tbody></table>
+        <p class="nm">To activate your account and begin collaboration click the button below:</p>
+        <button class="btn-join nm" onclick="window.open('https://www.google.com')">Activate Account and Join Room<i class="fa fa-external-link" aria-hidden="true"></i>
+        </button>
+        <p class="footer btn-margin">Please activate your account within 72 hours of receiving this email.</p>
+        <p> Afterwards, you can access Aviso by going directly
+            to <a href="https://app.aviso.com/">https://app.aviso.com/</a>
+
+            Sincerely,
+            The Aviso Team
+        </p>
+    </div>
+    <hr>
+    <div class="footer">
+        <p>© 2020, AVISO Inc. All Rights Reserved.</p>
+    </div>
+</div>
+
+<style>
+    #email {
+        font-family: Open Sans,sans-serif;
+        font-size: 13px;
+        margin: 41px auto 0px;
+        width: 396px;
+        height: auto;
+        border-radius: 12px;
+        border: solid 2px #c7cbd6;
+        word-wrap: break-word;
+    }
+    .body {
+        text-align: left;
+        white-space: pre-line;
+        color: #232742;
+        margin: 0 36px -12px 41px;
+    }
+    .btn-join {
+        width: 80%;
+        height: 46px;
+        font-size: 12px;
+        border-radius: 6px;
+        background-color: #151b42;
+        border: solid 2px;
+        color: white;
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+    .logo {
+        height: 6%;
+        width: 38%;
+        display: block;
+        margin: 50px auto auto;
+    }
+    .footer {
+        font-size: 11px;
+        color: #6f7288;
+        text-align: center;
+        margin-top: 19px;
+		margin-bottom: 24px;
+    }
+    .fa-external-link {
+        font-weight: bold;
+        margin-left: 10px;
+    }
+    .fa-users  {
+        font-size: 22px;
+        border: solid 1px #dde2eb;
+        color: white;
+        background-image: linear-gradient(to top, #bbe2ff, #5f9ed3);
+        border-radius: 60px;
+        padding: 10px;
+        margin-top: 7px;
+    }
+    .deal-name {
+        font-size: 15px;
+        font-weight: 600;
+        color: #0991cc;
+        margin: -5px 0 0 11px;
+    }
+    .invite-frm {
+        font-size: 12px;
+        color: #6f7288;
+        margin: 2px 0 0 11px;
+    }
+    .nm {
+        margin: 0 auto 0;
+    }
+    .btn-margin {
+        width: 62%;
+        margin: -15px auto 0;
+    }
+    hr {
+        width: 83%;
+        color: #6f7288;
+    }
+	a {
+		color: #0991cc;
+	}
+</style>
+
+</body></html>
