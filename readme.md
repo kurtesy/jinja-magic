@@ -20,21 +20,30 @@ Server used: gmail smtp
 1. Home Page to check server status-[GET]
     url=localhost:5000/
 2. Test your Email:[POST]
-    url=localhost:5000/testmail
-    content-type='application/json'
-    post-data=
-    {
-        "html_file": "name_of_your_html_template.html", (String)
-        "payload": JSON object for jinja template payload, (JSON Object)
-        "recipients": Array with list of strings of recipient email addresses (Array)
-        "optional": Optional fields list in your jinja template (Array)
-    }
+   ######url=localhost:5000/testmail
+   ######content-type='application/json'
+   ######Post-Data=
+    ````{	
+	  "html_file": "Welcome to Aviso!.html",
+	  "payload": {
+            "external_user": "Nishant",
+            "host_full_name": "Nishant Patel",
+            "deal_name": "Deal",
+            "room_url": "https://www.google.com",
+            "tenant_name": "SPLUNK"
+        },
+      "optional": ["opens_tracker"],
+      "recipients": ["nishant.patel@aviso.com", "test123@aviso.com"],
+      "subject": "Welcome to Aviso!"
+}```
 
     Sample request and response:
+    
     URL='http://127.0.0.1:5000/testmail'
 
     Request JSON-
-    {
+    
+    `{
 	"html_file": "Welcome to Aviso!.html",
 	"payload": {
             "external_user": "Nishant",
@@ -45,10 +54,11 @@ Server used: gmail smtp
         },
     "optional": ["opens_tracker"],
     "recipients": ["nishant.patel@aviso.com", "test123@aviso.com"]
-    }
+    }`
 
     Response JSON-
-    {
+    
+    `{
   "data": {
     "html_file": "Welcome to Aviso!.html",
     "optional": [
@@ -68,6 +78,26 @@ Server used: gmail smtp
   },
   "message": "Mail sent successfully!",
   "success": true
-}
+}`
+
+3. Get Parameters in your Jinja template:
+
+   ######url=localhost:5000/getparams
+   ######content-type='application/json'
+   ######Post-Data=
+   ````{	
+	  "html_file": "Welcome to Aviso!.html"
+}````
+
+4. Get Inline CSS HTML from your Jinja template:
+
+   ######url=localhost:5000/css-inline
+   ######content-type='application/json'
+   ######Post-Data=
+   ````{	
+	  "html_file": "Welcome to Aviso!.html"
+}````
 
 
+###Reference:
+Check the postman collection for the APIs used 

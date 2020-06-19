@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "efd8d93c-31eb-497d-8742-6480b1145c63",
+		"name": "aviso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "notification_service",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csrfmiddlewaretoken",
+							"value": "6OM6gpnILeyBKJ9lISc3NFPp6auu5DpeJAAdaJ8hBt0f9VGUfEXa8d5QoBAz2AIW",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "https://notification-qa.aviso.com/account/login",
+					"protocol": "https",
+					"host": [
+						"notification-qa",
+						"aviso",
+						"com"
+					],
+					"path": [
+						"account",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add email template",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://notification-qa.aviso.com/notify/api/email_template/",
+					"protocol": "https",
+					"host": [
+						"notification-qa",
+						"aviso",
+						"com"
+					],
+					"path": [
+						"notify",
+						"api",
+						"email_template",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Email template- POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\r\n\t\"html_file\": \"Welcome to Aviso!.html\",\r\n\t\"payload\": {\r\n            \"external_user\": \"Nishant\",\r\n            \"host_full_name\": \"Nishant Patel\",\r\n            \"deal_name\": \"Deal\",\r\n            \"room_url\": \"https://www.google.com\",\r\n            \"tenant_name\": \"SPLUNK\"\r\n        },\r\n    \"optional\": [\"opens_tracker\"],\r\n    \"recipients\": [\"nishant.patel@aviso.com\", \"test123@aviso.com\"],\r\n    \"subject\": \"Welcome to Aviso!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/testmail",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"testmail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Email template get params - POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\r\n\t\"html_file\": \"Welcome to Aviso!.html\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/getparams",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"getparams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Email template css inline - POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\r\n\t\"html_file\": \"Welcome to Aviso!.html\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/css-inline",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"css-inline"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
