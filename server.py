@@ -1,6 +1,6 @@
 from flask import Flask, abort, jsonify, request
-
-from utils import format_email_params
+from test_template import TestMailTemplate
+from utils import format_email_params, validated_response
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -13,30 +13,49 @@ def home():
 
 
 @app.route('/testmail', methods=['POST'])
-def testmail():
+def testMail():
     requestData = request.json
-    fieldList = ['html_file', 'payload', 'recipients', 'optional']
+    fieldList = ['html_file', 'payload', 'recipients', 'optional', 'subject']
     data, status, missing_params = format_email_params(requestData, fieldList)
-    payload = {}
-    if status:
-        response = jsonify({
+    if not status:
+        return validated_response(status, data, missing_params, 'missingParams')
+    testObj = TestMailTemplate()
+    sent_status, sent_response = testObj.send_mail(requestData['subject'], requestData['recipients'],
+                                                   requestData['html_file'],
+                                                   requestData['payload'], requestData['optional'])
+    print sent_response
+    response = validated_response(sent_status, data, sent_response, 'mailingError')
+    return response
+
+
+@app.route('/getparams', methods=['POST'])
+def getParams():
+    requestData = request.json
+    data, status, missing_params = format_email_params(requestData, ['html_file'])
+    if not status:
+        return validated_response(status, data, missing_params, 'missingParams')
+    testObj = TestMailTemplate()
+    paramsList = testObj.get_template_params(data['html_file'])
+    return jsonify({
             "success": True,
-            "message": "Mail sent successfully!",
-            "data": data
-            })
-    else:
-        response = jsonify({
-            "success": False,
-            "message": "Mail sending failed due to missing params: {}".format(missing_params),
+            "paramsList": paramsList,
             "data": data
         })
 
-    return response
 
-@app.route('/getParams', methods=['POST'])
-def getParams():
+@app.route('/css-inline', methods=['POST'])
+def getInlineCSS():
     requestData = request.json
-    data = format_email_params(requestData, ['html_file'])
+    data, status, missing_params = format_email_params(requestData, ['html_file'])
+    if not status:
+        return validated_response(status, data, missing_params, 'missingParams')
+    testObj = TestMailTemplate()
+    html_data = testObj.premailer(data['html_file'])
+    return jsonify({
+            "success": True,
+            "inline_css_html": html_data,
+            "data": data
+        })
 
 
 if __name__ == '__main__':
