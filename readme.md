@@ -101,3 +101,4 @@ Server used: gmail smtp
 
 ###Reference:
 Check the postman collection for the APIs used 
+``aviso.postman_collection.json``
