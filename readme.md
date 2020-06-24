@@ -1,11 +1,11 @@
-#Email template testing for Jinja-Gmail
+# Email template testing for Jinja-Gmail
 This is a testing app endpoint for testing templates with jinja formatting and check the mail sending to your mail
 
-##Email protocol:
+## Email protocol:
 Email protocol used is SMTP
 Server used: gmail smtp
 
-##Setup guidelines:
+## Setup guidelines:
 
 1. Place the folder `template-test` inside python-sdk repo directory in your local
 2. activate the virtual environment
@@ -16,7 +16,7 @@ Server used: gmail smtp
     `python server`
 6. place your html file and assets inside `templates` folder
 
-##API endpoints:(Use Postman or curl request)
+## API endpoints:(Use Postman or curl request)
 1. Home Page to check server status-[GET]
     url=localhost:5000/
 2. Test your Email:[POST]
@@ -99,6 +99,6 @@ Server used: gmail smtp
 }````
 
 
-###Reference:
+## Reference:
 Check the postman collection for the APIs used 
 ``aviso.postman_collection.json``
