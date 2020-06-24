@@ -6,6 +6,7 @@ ERROR_MAP = {
     'mailingError': lambda z: "Mail sending failed mail server error: {}".format(z),
 }
 
+
 def format_email_params(requestData, fields):
     result = {}
     missing_params = []
@@ -31,7 +32,7 @@ def validated_response(status, data, error, type):
     else:
         response = jsonify({
             "success": False,
-            "message": ERROR_MAP[type],
+            "message": ERROR_MAP[type](error),
             "data": data,
             "error-code": type
         })

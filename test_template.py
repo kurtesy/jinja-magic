@@ -41,7 +41,7 @@ class TestMailTemplate:
         return jinjaOutput
 
     def validate_template_params(self, templateEnv, file_path):
-        variables = self.get_template_params(file_path)
+        variables = set(self.get_template_params(file_path))
         diff = variables.difference(set(self.payload.keys()))
         diff = diff.difference(set(self.optional))
         if diff:
